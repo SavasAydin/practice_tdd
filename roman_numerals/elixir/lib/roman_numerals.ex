@@ -16,16 +16,18 @@ defmodule Roman_numerals do
 	end
 
 	defp get_roman_expression(x) do
-		{^x, re} = List.keyfind([{1, "I"},
-														 {4,"IV"},
-														 {5, "V"},
-														 {9, "IX"},
-														 {10, "X"},
-														 {40, "XL"},
-														 {50, "L"}],
-														x,
-														0)
+		rns = roman_numerical_system()
+		{^x, re} = List.keyfind(rns, x, 0)
 		re
 	end
 
+	defp roman_numerical_system() do
+		[{1, "I"},
+		 {4,"IV"},
+		 {5, "V"},
+		 {9, "IX"},
+		 {10, "X"},
+		 {40, "XL"},
+		 {50, "L"}]
+	end
 end
