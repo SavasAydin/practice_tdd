@@ -57,4 +57,16 @@ defmodule RomanNumeralsTest do
     assert Roman_numerals.convert(50) == "L"	
   end
 
+	test "sixty_is_expressed_as_LX" do
+    assert Roman_numerals.convert(60) == "LX"	
+  end
+
+	test "seventy_is_expressed_as_LXX" do
+    assert Roman_numerals.convert(70) == "LXX"	
+  end
+
+	test "eighty_nine_is_expressed_as_LXXXIX" do
+    assert Roman_numerals.convert(89) == "LXXXIX"	
+  end
+	
 end
