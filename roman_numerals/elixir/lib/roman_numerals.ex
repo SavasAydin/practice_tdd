@@ -10,9 +10,9 @@ defmodule Roman_numerals do
 	end
 
 	defp get_low_limit(x) do
-		limits = all_limits()
-		[{low_limit, _}] = Enum.filter(limits, fn({l,h}) -> x >= l and x < h end)
-		low_limit
+		limits = all_low_limits()
+		[infimum|_] = Enum.reverse(Enum.filter(limits, fn(low) -> x >= low end))
+		infimum
 	end
 
 	defp roman_expression_of(x) do
@@ -21,9 +21,8 @@ defmodule Roman_numerals do
 		re
 	end
 
-	defp all_limits() do
-		[{1,4}, {4,5}, {5,9}, {9,10}, {10,40}, {40,50}, {50,90},
-		 {90,100}, {100,500},{500,900}, {900,1000}, {1000,5000}]
+	defp all_low_limits() do
+		[1,4,5,9,10,40,50,90,100,500,900,1000]
 	end
 
 	defp roman_numerical_system() do
