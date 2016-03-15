@@ -16,7 +16,7 @@ get_lower_limit(N) ->
 roman_expression_of(N) ->
     proplists:get_value(N, roman_numerals()).
 
-all_low_limits() ->			    
+all_low_limits() ->
     [1,4,5,9,10,40,50,90,100,500,900,1000].
 
 roman_numerals() ->
@@ -31,5 +31,4 @@ roman_numerals() ->
      {100, "C"},
      {500, "D"},
      {900, "CM"},
-     {1000, "M"}
-    ].
+     {1000, "M"}].
