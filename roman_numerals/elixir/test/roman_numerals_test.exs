@@ -37,7 +37,7 @@ defmodule RomanNumeralsTest do
 		assert Roman_numerals.convert(39) == "XXXIX"
 	end
 
-	test "fourty_is_expressed_as_XL" do
+	test "forty_is_expressed_as_XL" do
 		assert Roman_numerals.convert(40) == "XL"
 	end
 
