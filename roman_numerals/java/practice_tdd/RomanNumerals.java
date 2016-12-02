@@ -1,9 +1,8 @@
 package practice_tdd;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.TreeSet;
 
 public class RomanNumerals {
 
@@ -18,44 +17,18 @@ public class RomanNumerals {
     }
 
     private int getLowLimit(int number) {
-        List<Integer> limits = new ArrayList<Integer>();
-        limits.add(1000);
-        limits.add(900);
-        limits.add(500);
-        limits.add(100);
-        limits.add(90);
-        limits.add(50);
-        limits.add(40);
-        limits.add(10);
-        limits.add(9);
-        limits.add(5);
-        limits.add(4);
-        limits.add(1);
-
+        Map<Integer, String> limits = getLimitsAndRepresentations();
         int lowLimit = 0;
-        for (int limit : limits) {
-            if (number >= limit) {
-                return limit;
+        for(int key: new TreeSet<Integer>(limits.keySet())) {
+            if (number >= key) {
+                lowLimit = key;
             }
         }
         return lowLimit;
     }
 
     private String getRepresentation(int limit) {
-        Map<Integer, String> limits = new HashMap<Integer, String>();
-        limits.put(1, "I");
-        limits.put(4, "IV");
-        limits.put(5, "V");
-        limits.put(9, "IX");
-        limits.put(10, "X");
-        limits.put(40, "XL");
-        limits.put(50, "L");
-        limits.put(90, "XC");
-        limits.put(100, "C");
-        limits.put(500, "D");
-        limits.put(900, "CM");
-        limits.put(1000, "M");
-
+        Map<Integer, String> limits = getLimitsAndRepresentations();
         String representation = null;
         for (int key : limits.keySet()) {
             if (limit == key) {
@@ -63,6 +36,23 @@ public class RomanNumerals {
             }
         }
         return representation;
+    }
+
+    private HashMap<Integer, String> getLimitsAndRepresentations() {
+        HashMap<Integer, String> limits = new HashMap<Integer, String>();
+        limits.put(1000, "M");
+        limits.put(900, "CM");
+        limits.put(500, "D");
+        limits.put(100, "C");
+        limits.put(90, "XC");
+        limits.put(50, "L");
+        limits.put(40, "XL");
+        limits.put(10, "X");
+        limits.put(9, "IX");
+        limits.put(5, "V");
+        limits.put(4, "IV");
+        limits.put(1, "I");
+        return limits;
     }
 
 }
